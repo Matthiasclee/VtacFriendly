@@ -1,6 +1,6 @@
 require_relative "lib/vtac-fiendly.rb"
 
-exe=['ftext']
+exe=['vtac-ui']
 
 Gem::Specification.new do |s|
   s.name        = 'rbtext'
