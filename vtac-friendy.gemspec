@@ -11,7 +11,8 @@ Gem::Specification.new do |s|
   s.email       = 'matthias@matthiasclee.com'
   s.files       = [
     "lib/vtac_friendly.rb",
-    "lib/vtac_friendly/vtac_packet.rb"
+    "lib/vtac_friendly/vtac_packet.rb",
+    "lib/vtac_friendly/vtac_client.rb",
   ] + exe.map{|i|"bin/#{i}"}
   s.executables = exe
   s.add_runtime_dependency "argparse", '~> 0.0.3'

@@ -1,4 +1,7 @@
+require_relative "vtac_friendly/vtac_client.rb"
 require_relative "vtac_friendly/vtac_packet.rb"
+require "socket"
+require "json"
 
 module VtacFriendly
   @ver_1 = 0

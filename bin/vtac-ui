@@ -11,3 +11,5 @@ options = {}
 args = ArgsParser::Args.new(switches: switches, options: options)
 
 # Connect to client
+
+server = VtacFriendly::Client.connect(args.data[0], args.switches[:p] ? args.switches[:p].to_i : 5582)
