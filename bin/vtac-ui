@@ -1,6 +1,13 @@
 #!/usr/bin/env ruby
 
-require_relative "../lib/vtac-friendly.rb"
+require_relative "../lib/vtac_friendly.rb"
 require "argparse"
 
+switches = {
+  p: { has_argument: true },
+}
+options = {}
 
+args = ArgsParser::Args.new(switches: switches, options: options)
+
+# Connect to client

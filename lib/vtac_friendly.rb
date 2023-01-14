@@ -1,3 +1,5 @@
+require_relative "vtac_friendly/vtac_packet.rb"
+
 module VtacFriendly
   @ver_1 = 0
   @ver_2 = 0
