@@ -2,6 +2,7 @@ require_relative "vtac_friendly/vtac_client.rb"
 require_relative "vtac_friendly/vtac_packet.rb"
 require_relative "vtac_friendly/analytics_tab.rb"
 require "socket"
+require "rbtext"
 require "json"
 
 module VtacFriendly
