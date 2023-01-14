@@ -19,7 +19,7 @@ module VtacFriendly
 
       # Get data
       sh15_buttons = ["A0", "A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "AA", "AB", "AC", "AD", "AE"]
-      white_spectrum_colors = (232..245).to_a.reverse
+      white_spectrum_colors = (234..245).to_a.reverse
       sh15_keypresses_by_usage={}
       sh15_buttons_color = {}
 
