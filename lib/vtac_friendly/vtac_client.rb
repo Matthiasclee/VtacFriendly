@@ -8,7 +8,7 @@ module VtacFriendly
 
       server.puts VtacPacket.new(:id_client, "vtac_client")
 
-      return server
+      return [server, server_name]
     end
 
     module_function :connect

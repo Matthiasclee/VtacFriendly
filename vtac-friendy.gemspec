@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.executables = exe
   s.add_runtime_dependency "argparse", '~> 0.0.3'
   s.add_runtime_dependency "rbtext", '~> 0.3.2'
+  s.add_runtime_dependency "io-console", '~> 0.5.6'
   s.require_paths = ["lib"]
   s.homepage = 'https://github.com/Matthiasclee/VtacFriendly'
   s.license = 'AGPL-3.0'

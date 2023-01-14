@@ -2,6 +2,7 @@
 
 require_relative "../lib/vtac_friendly.rb"
 require "argparse"
+require "io/console"
 
 switches = {
   p: { has_argument: true },
@@ -12,6 +13,25 @@ args = ArgsParser::Args.new(switches: switches, options: options)
 
 # Connect to client
 
-server = VtacFriendly::Client.connect(args.data[0], args.switches[:p] ? args.switches[:p].to_i : 5582)
+srv = VtacFriendly::Client.connect(args.data[0], args.switches[:p] ? args.switches[:p].to_i : 5582)
+server = srv[0]
+server_name = srv[1]
+sock_domain, remote_port, remote_hostname, remote_ip = server.peeraddr
 
-VtacFriendly::AnalyticsTab.show server
+bb = (R::C.color :blue) + (R::F.bold)
+rb = R::F.reset(R::F.bold) + (R::C.color :reset)
+
+loop do
+  R::S.clear
+  R::Cr.go_to_pos(0,0)
+  puts "Connected to #{server_name}@#{remote_ip}"
+
+  puts "_.f:bold.__.cb:black._Analytics_.f:reset.__.cb:gray._Config".to_ftext
+  VtacFriendly::AnalyticsTab.show server
+  R::C.color :gray, type: :bg, mode: :set
+  puts "#{bb}H#{rb} Tab left #{bb}L#{rb} Tab right #{bb}R#{rb} Reset analytics"
+  R::F.reset mode: :set
+  char = STDIN.getch
+  puts char.dump
+  exit if char == "\x03"
+end
