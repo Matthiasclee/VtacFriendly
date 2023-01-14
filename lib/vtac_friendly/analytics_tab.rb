@@ -48,7 +48,7 @@ module VtacFriendly
           num = "0"*(3-(num.length)) + num
         end
 
-        num = "#{R::C.color :red}#{R::C.num_color sh15_buttons_color[b], type: :bg}#{num}#{R::C.color :reset}#{R::C.color :reset, type: :bg}"
+        num = "#{R::F.bold}#{R::C.color :red}#{R::C.num_color sh15_buttons_color[b], type: :bg}#{num}#{R::C.color :reset}#{R::C.color :reset, type: :bg}#{R::F.reset}"
 
         sh15.gsub!(?-+b, num)
       end
