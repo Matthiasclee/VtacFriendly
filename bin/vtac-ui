@@ -54,6 +54,16 @@ loop do
   ctab = :config if char.upcase == "L" && ctab == :analytics
   ctab = :analytics if char.upcase == "H" && ctab == :config
 
+  if char.upcase == "P" && ctab == :config
+    VtacFriendly::ConfigTab.change_pxsize(server)
+  end
+  if char.upcase == "R" && ctab == :config
+    VtacFriendly::ConfigTab.change_roomlength(server)
+  end
+  if char.upcase == "M" && ctab == :config
+    VtacFriendly::ConfigTab.toggle_mirroring(server)
+  end
+
   if char == "\x03"
     R::Cr.show
     R::S.clear
