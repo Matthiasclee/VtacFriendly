@@ -21,7 +21,7 @@ sock_domain, remote_port, remote_hostname, remote_ip = server.peeraddr
 bb = (R::C.color :blue) + (R::F.bold)
 rb = R::F.reset(R::F.bold) + (R::C.color :reset)
 
-ctab = :config
+ctab = :analytics
 
 loop do
   R::S.clear
@@ -38,6 +38,7 @@ loop do
     puts " "*(R::S.width-R::Cr.pos[0])
   elsif ctab == :config
     puts "_.cb:gray._Analytics_.f:bold.__.cb:black._Config".to_ftext
+    VtacFriendly::ConfigTab.show server
 
     R::Cr.go_to_pos(0, R::S.height/2)
     R::C.color :gray, type: :bg, mode: :set
