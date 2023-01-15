@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
     "lib/vtac_friendly/vtac_client.rb",
     "lib/vtac_friendly/analytics_tab.rb",
     "lib/vtac_friendly/config_tab.rb",
+    "lib/vtac_friendly/system_tab.rb",
   ] + exe.map{|i|"bin/#{i}"}
   s.executables = exe
   s.add_runtime_dependency "argparse", '~> 0.0.3'
