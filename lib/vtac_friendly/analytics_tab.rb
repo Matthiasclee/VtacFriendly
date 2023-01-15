@@ -30,6 +30,7 @@ module VtacFriendly
       end
 
       max_num = sh15_keypresses_by_usage.values.max
+      max_num = 1 if (max_num == 0)
 
       sh15_keypresses_by_usage.keys.each do |k|
         percentile = (sh15_keypresses_by_usage[k].to_f/max_num.to_f)*100
@@ -57,6 +58,11 @@ module VtacFriendly
 
     end
 
-    module_function :show
+    def reset(server)
+      server.puts VtacPacket.new(:command, "analytics keypresses clear")
+      VtacPacket.new(from_packet: server.gets)[:contents]
+    end
+
+    module_function :show, :reset
   end
 end

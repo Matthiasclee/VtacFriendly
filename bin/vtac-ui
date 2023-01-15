@@ -64,6 +64,10 @@ loop do
     VtacFriendly::ConfigTab.toggle_mirroring(server)
   end
 
+  if char.upcase == "R" && ctab == :analytics
+    VtacFriendly::AnalyticsTab.reset(server)
+  end
+
   if char == "\x03"
     R::Cr.show
     R::S.clear
