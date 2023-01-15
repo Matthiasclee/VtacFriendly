@@ -23,6 +23,8 @@ rb = R::F.reset(R::F.bold) + (R::C.color :reset)
 
 ctab = :analytics
 
+R::Cr.hide
+
 loop do
   R::S.clear
   R::Cr.go_to_pos(0,0)
@@ -32,18 +34,18 @@ loop do
     puts "_.f:bold.__.cb:black._Analytics_.f:reset.__.cb:gray._Config".to_ftext
     VtacFriendly::AnalyticsTab.show server
 
-    R::Cr.go_to_pos(0, R::S.height/2)
+    R::Cr.go_to_pos(0, R::S.height)
     R::C.color :gray, type: :bg, mode: :set
     print "#{bb}H#{rb} Tab left #{bb}L#{rb} Tab right #{bb}R#{rb} Reset analytics"
-    puts " "*(R::S.width-R::Cr.pos[0])
+    print " "*(R::S.width-R::Cr.pos[0])
   elsif ctab == :config
     puts "_.cb:gray._Analytics_.f:bold.__.cb:black._Config".to_ftext
     VtacFriendly::ConfigTab.show server
 
-    R::Cr.go_to_pos(0, R::S.height/2)
+    R::Cr.go_to_pos(0, R::S.height)
     R::C.color :gray, type: :bg, mode: :set
     print "#{bb}H#{rb} Tab left #{bb}L#{rb} Tab right #{bb}P#{rb} Change pxsize #{bb}R#{rb} Change room length #{bb}M#{rb} Toggle mirroring"
-    puts " "*(R::S.width-R::Cr.pos[0])
+    print " "*(R::S.width-R::Cr.pos[0])
   end
 
   R::F.reset mode: :set
@@ -52,5 +54,10 @@ loop do
   ctab = :config if char.upcase == "L" && ctab == :analytics
   ctab = :analytics if char.upcase == "H" && ctab == :config
 
-  exit if char == "\x03"
+  if char == "\x03"
+    R::Cr.show
+    R::S.clear
+    R::Cr.go_to_pos(0,0)
+    exit
+  end
 end

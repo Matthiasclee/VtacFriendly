@@ -7,8 +7,10 @@ module VtacFriendly
       server.puts VtacPacket.new(:command, "config roomlength")
       roomlength = VtacPacket.new(from_packet: server.gets)[:contents]
 
-      puts "Pxsize: #{pxsize}"
-      puts "Room length: #{roomlength}"
+      puts "
+#{R::C.color :blue}#{R::F.bold}Pxsize#{R::F.reset} #{pxsize}
+#{R::C.color :blue}#{R::F.bold}Room length#{R::F.reset} #{roomlength}
+"
     end
 
     module_function :show
