@@ -22,6 +22,11 @@ module VtacFriendly
     end
 
     def update(server)
+      R::Cr.go_to_pos(0, R::S.height-1)
+      R::C.color :gray, type: :bg, mode: :set
+      print "Updating..."
+      R::C.color :reset, type: :bg, mode: :set
+
       server.puts VtacPacket.new(:command, "update")
       VtacPacket.new(from_packet: server.gets)[:contents]
     end
