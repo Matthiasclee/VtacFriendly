@@ -10,7 +10,7 @@ require "json"
 module VtacFriendly
   @ver_1 = 0
   @ver_2 = 0
-  @ver_3 = 2
+  @ver_3 = 3
   @ver_4 = ""
 
   def self.version
