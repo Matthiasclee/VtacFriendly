@@ -1,9 +1,11 @@
 module VtacFriendly
   module SystemTab
-    def show(ip, name)
+    def show(ip, name, version, password)
       puts "
 #{R::C.color :blue}#{R::F.bold}IP#{R::F.reset} #{ip}
 #{R::C.color :blue}#{R::F.bold}Server name#{R::F.reset} #{name}
+#{R::C.color :blue}#{R::F.bold}Version#{R::F.reset} #{version}
+#{R::C.color :blue}#{R::F.bold}Authentication#{R::F.reset} #{password ? "enabled" : "disabled"}
 "
     end
 

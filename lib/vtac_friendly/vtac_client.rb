@@ -24,7 +24,7 @@ module VtacFriendly
         end
       end
 
-      return [server, server_name]
+      return [server, server_name, server_version, auth_required]
     end
 
     module_function :connect
