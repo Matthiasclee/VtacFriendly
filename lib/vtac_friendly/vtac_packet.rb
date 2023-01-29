@@ -1,6 +1,6 @@
 module VtacFriendly
   class VtacPacket
-    @@allowed_types = [:command, :response, :id_server, :id_client, :error, :disconnect]
+    @@allowed_types = [:command, :response, :id_server, :id_client, :error, :disconnect, :password]
 
     def initialize(type=:response, contents="", from_packet:nil)
       if !from_packet
